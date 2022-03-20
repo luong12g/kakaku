@@ -1,0 +1,91 @@
+{
+  "name": "Cambia on Heroku",
+  "description": "A template for installing and running WordPress on Heroku",
+  "keywords": [ "PHP", "WordPress", "Blog", "CMS" ],
+  "website": "https://github.com/jacwebii/heroku-wp",
+  "repository": "https://github.com/jacwebii/heroku-wp",
+  "logo": "https://s.w.org/style/images/about/WordPress-logotype-wmark.png",
+  "success_url": "/wp-admin/install.php",
+  "env": {
+    "NEW_RELIC_APP_NAME": {
+      "description": "The application name in New Relic for this app",
+      "value": "Cambia Heroku WP",
+      "required": true
+    },
+    "WP_DB_SSL": {
+      "description": "To connect to MySQL over SSL set this to 'ON'",
+      "value": "OFF",
+      "required": false
+    },
+    "WP_DEBUG": {
+      "description": "Set this to 'TRUE' to turn on debug logging",
+      "value": "FALSE",
+      "required": false
+    },
+    "DISABLE_WP_CRON": {
+      "description": "Set this to 'TRUE' to disable the default WP cron runner",
+      "value": "FALSE",
+      "required": false
+    },
+    "WP_AUTH_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_SECURE_AUTH_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_LOGGED_IN_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_NONCE_KEY": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_AUTH_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_SECURE_AUTH_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_LOGGED_IN_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    },
+    "WP_NONCE_SALT": {
+      "description": "One of the salts used to secure WordPress",
+      "generator": "secret"
+    }
+  },
+  "environments": {
+    "test": {
+      "env": {
+        "NEW_RELIC_APP_NAME": "Heroku WP Test",
+        "WP_DB_SSL": "OFF",
+        "WP_DEBUG": "FALSE",
+        "S3_UPLOADS_REGION": "us-east-1",
+        "WP_AUTH_KEY": "J}X1fks`5OJ0a}q[`KP!T-lHsRqss-566p]lmkbfx<;s>#C@jX;/HXzQQmnX8,P$",
+        "WP_SECURE_AUTH_KEY": "jphh[{b()3,r)lX&V@ZSQBJa<y=;Aw0ZURa^K@GP@W@!Rw>oTSM<Gle5?lw-yY]P",
+        "WP_LOGGED_IN_KEY": "V{}10hfdLzGDo9P,:#ID%,=AYDCW@$S7KR&L-Y2_J%i;*}99Wp3I>#e.ci$FMpZX",
+        "WP_NONCE_KEY": "A)UmWClxB>!zcw^)R_ihiPv_=?`vy&:Y1Ya:0s,&Q7FF).LNJ>bhx4bZIU[#LyMr",
+        "WP_AUTH_SALT": "*]}?,ej030(r{uE<IzYBG*qo:<C%W]_j}?f76!/w<_8%}>W0($bC`dT#z3nmHEr#",
+        "WP_SECURE_AUTH_SALT": ">cQMB=F?8l:F%TZW^DUe1tLvRczaTSI.t,p!#3EX?lZk^do{kT,r)Y/tqH?ZG!dj",
+        "WP_LOGGED_IN_SALT": "F/e.tvf&k`-UJLs3+,`qr(2R1(Ib^u`bt&7i^:!+eSix_`Q&xO]HEI$s!77dZgN!",
+        "WP_NONCE_SALT": "z$5^.{$e$EdDK{:gU-oplOqeecM&defPWk?D(NiU+<nCd{uasAwBdp;eM@rfbA,d"
+      }
+    }
+  },
+  "addons": [
+    {
+      "plan": "jawsdb-maria:kitefin",
+      "as": "WP_DB"
+    },
+    {
+      "plan": "newrelic:wayne"
+    }
+  ],
+  "stack": "heroku-16"
+}
