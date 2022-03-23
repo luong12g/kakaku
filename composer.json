@@ -60,7 +60,7 @@
     },
     "scripts": {
         "post-install-cmd": [
-           "chmod +x ./support/app_slug_compile.sh && ./support/app_slug_compile.sh"
+            "chmod +x ./support/app_slug_compile.sh && ./support/app_slug_compile.sh"
         ]
     }
 }
