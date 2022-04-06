@@ -19,6 +19,7 @@
         "humanmade/s3-uploads": "~2",
         "deliciousbrains/wp-amazon-s3-and-cloudfront": "~1",
         "wpackagist-plugin/jetpack": "*",
+     
         "predis/predis": "~1.0",
         "wp-cli/wp-cli": "^1.0"
     },
@@ -64,7 +65,7 @@
     },
     "config": {
         "allow-plugins": {
-            "composer/installers": false
+            "composer/installers": true
         }
     }
 }
